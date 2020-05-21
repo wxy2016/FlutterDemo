@@ -1,4 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'base.dart';
+import 'layout.dart';
+import 'rowandcolumn.dart';
+import 'item.dart';
+import 'contain.dart';
+import 'scroll.dart';
+import 'function.dart';
+import 'event.dart';
+import 'animate.dart';
+import 'custom.dart';
+import 'fileandhttp.dart';
+import 'package.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +34,19 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
+      routes: {
+        "base": (context) => BaseItem("基础组件"),
+        "layout": (context) => LayoutItem("布局类组件"),
+        "contain": (context) => ContainItem("容器类组件"),
+        "scroll": (context) => ScrollItem("可滚动组件"),
+        "function": (context) => FunctionItem("功能型组件"),
+        "event": (context) => EventItem("事件处理与通知"),
+        "animate": (context) => AnimateItem("动画"),
+        "custom": (context) => CustomItem("自定义组件"),
+        "fileandhttp": (context) => FileAndHttpItem("文件操作与网络请求"),
+        "package": (context) => PackageItem("包与插件"),
+        "rowandcolumn": (context) => RowAndColumnItem("row column 布局类组件")
+      },
       home: MainPage(),
     );
   }
@@ -30,50 +57,31 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: Center(
-          child: Column(
-        children: <Widget>[
-          Container(
-              width: 150,
-              height: 50,
-              color: Colors.blue,
-              margin: EdgeInsets.only(top: 50),
-              child: FlatButton(
-                onPressed: null,
-                child: Text(
-                  "基础组件",
-                  style: TextStyle(color: Colors.red, fontSize: 20),
-                ),
-                color: Colors.red,
+        appBar: AppBar(
+          title: Container(
+              width: double.infinity,
+              child: Text(
+                "flutter demo",
+                textAlign: TextAlign.center,
               )),
-              Item("容器类组件"),
-        ],
-      )),
-    );
+        ),
+        body: Center(
+          child: ListView(
+            children: <Widget>[
+              Item("基础组件", "base"),
+              Item("布局类组件", "layout"),
+              Item("容器类组件", "contain"),
+              Item("可滚动组件", "scroll"),
+              Item("功能型组件", "function"),
+              Item("事件处理与通知", "event"),
+              Item("动画", "animate"),
+              Item("自定义组件", "custom"),
+              Item("文件操作与网络请求", "fileandhttp"),
+              Item("包与插件", "package"),
+            ],
+          ),
+        ));
   }
-}
-
-class Item extends StatelessWidget{
-  var title;
-  Item(this.title);
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-              width: 150,
-              height: 50,
-              color: Colors.blue,
-              margin: EdgeInsets.only(top: 20),
-              child: FlatButton(
-                onPressed: null,
-                child: Text(
-                  title,
-                  style: TextStyle(color: Colors.red, fontSize: 20),
-                ),
-                color: Colors.red,
-              ));
-  }
-
 }
 
 class MyHomePage extends StatefulWidget {
