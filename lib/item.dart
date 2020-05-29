@@ -8,7 +8,7 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
+    return Center(//使用Center Widget可以让宽度尽可能大的占用空间
       child: FlatButton(
         //如果onPressed:null。则颜色为disable的颜色。
         onPressed: () {

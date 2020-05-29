@@ -13,6 +13,7 @@ import 'animate.dart';
 import 'custom.dart';
 import 'fileandhttp.dart';
 import 'package.dart';
+import 'base/status.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
         "custom": (context) => CustomItem("自定义组件"),
         "fileandhttp": (context) => FileAndHttpItem("文件操作与网络请求"),
         "package": (context) => PackageItem("包与插件"),
-        "rowandcolumn": (context) => RowAndColumnItem("row column 布局类组件")
+        "rowandcolumn": (context) => RowAndColumnItem("row column 布局类组件"),
+        "status": (context) => Status(),
       },
       home: MainPage(),
     );
